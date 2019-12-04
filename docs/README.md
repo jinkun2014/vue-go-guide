@@ -2,7 +2,7 @@
 
 > 本项目基于Vue+Element搭建的一个基础开发框架
 
-![目录结构](images/project.png)
+![预览](./images/5.png)
 
 ## 项目说明
 ```
