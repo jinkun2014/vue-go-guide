@@ -30,19 +30,19 @@
               <div class="el-card" :style="{'border-color':g.color}">
                 <div class="el-card__header" :style="{'background-color':g.color}">
                   <div>
-                    <span class="title">{{g.title}}</span>
-                    <i v-if="editable" @click="deleteGuide(g)" class="el-icon-delete"
-                       style="cursor: pointer;float: right;color:#FFFFFF;"></i>
-                    <i v-if="editable" @click="editGuide(g)" class="el-icon-edit"
-                       style="cursor: pointer;float: right;color:#FFFFFF;margin-right: 3px"></i>
-                    <i v-if="editable" class="el-icon-rank my-handle"
-                       style="cursor: pointer;float: right;color:#FFFFFF;margin-right: 3px"></i>
+                    <span class="title" :style="{'max-width':editable?'90%':'100%'}">{{g.title}}</span>
+                    <div style="position: absolute;top: 22px;right: 5px;z-index: 2;">
+                      <i v-if="editable" class="el-icon-rank my-handle"
+                         style="cursor: pointer;color:#FFFFFF;"></i>
+                      <i v-if="editable" @click="editGuide(g)" class="el-icon-edit"
+                         style="cursor: pointer;color:#FFFFFF;"></i>
+                      <i v-if="editable" @click="deleteGuide(g)" class="el-icon-delete"
+                         style="cursor: pointer;color:#FFFFFF;"></i>
+                    </div>
                   </div>
                 </div>
                 <div class="el-card__body content">
                   <div class="summary">
-                    <!--Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur-->
-                    <!--adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit.-->
                     {{g.summary}}
                   </div>
                   <div class="bottom">
@@ -493,11 +493,12 @@ export default {
     5、超出部分以'...'结尾
   */
   max-width: 100%;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #FFFFFF
+  color: #FFFFFF;
+  text-align: center;
 }
 
 .content {
@@ -561,6 +562,7 @@ export default {
   .content-item {
     width: 90%;
   }
+
   .admin {
     display: none;
   }
